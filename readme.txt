@@ -3,3 +3,4 @@ fff
 LOX pidor
 Sam pidor
 Victory!
+Glory
