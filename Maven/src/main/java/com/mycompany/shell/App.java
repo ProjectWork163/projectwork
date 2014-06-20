@@ -1,18 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.mycompany.shell;
 
-/**
- *
- * @author kuzyaev_nikolay
- */
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 public class App {
-    //private ChangeDirectory
+    
+    private static ChangeDirectory cd = new ChangeDirectory();
+    
     public static void main(String[] args) {
-        
+        System.out.println("Current: " + cd.getCurrent().getAbsolutePath());
+        try {
+            cd.cd("..");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            System.out.println(ex.getMessage());
+        }
+        System.out.println("Current: " + cd.getCurrent().getAbsolutePath());
     }
 }

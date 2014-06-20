@@ -17,12 +17,18 @@ public class ChangeDirectory {
     private File current;
    
     public ChangeDirectory() {
-        current = new File(".");
+        current = new File("");
     }
     
     public File cd(String path) throws Exception {
+        //toLowerCase - перевод символов в нижний регист.
         boolean isDiskChanged = path.toLowerCase().startsWith("c:") || path.toLowerCase().startsWith("d:");
-        File newCurrent = isDiskChanged ? new File(path) : new File(current, path);
+        boolean isParentDir = path.equals("..");
+        File newCurrent = isParentDir 
+                ? current.getParentFile() 
+                : isDiskChanged 
+                    ? new File(path) 
+                    : new File(current, path);
         if (!newCurrent.isDirectory()) {
             throw new Exception("path is not a directody");
         }
