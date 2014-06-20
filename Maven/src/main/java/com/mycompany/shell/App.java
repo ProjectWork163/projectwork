@@ -16,16 +16,23 @@ public class App {
         int n = 1;
         String text = "";
         while (n != 0) {
-            System.out.print("Current: " + cd.getCurrent().getAbsolutePath() + "> ");
+            System.out.print("Current: " + cd.getCurrent().getAbsolutePath() + ">");
             text = sc.nextLine();
-          //  try {
-          //      cd.cd(text);
+            String[] s = text.split(" ");
+            if ("cd".equals(s[0])) {
+                try {
+                    cd.cd(s[1]);
 
-           // } catch (Exception ex) {
-          //      System.out.println(ex.getMessage());
-          //  }
-            
-            rm.Del(cd.getCurrent().getAbsolutePath(), text);
+                } catch (Exception ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+            if ("remove".equals(s[0])) {
+                rm.Del(cd.getCurrent().getAbsolutePath(), (s[1]));
+            }
+            if ("exit".equals(s[0])) {
+                n = 0;
+            }
         }
     }
 }

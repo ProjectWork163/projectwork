@@ -15,6 +15,7 @@ public class Remove {
 
     public void Del(String path, String name){
          File file = new File(path,name);
-          file.delete();
+         file.delete();
+         System.out.println("File " + name + " is deleted");
     }
 }
