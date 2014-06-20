@@ -3,10 +3,10 @@ package com.mycompany.shell;
 import java.io.File;
 
 public class ChangeDirectory {
-    
+
     private File current;
     Object getCurrent;
-   
+
     public ChangeDirectory(String initialPath) {
         if (initialPath != null) {
             current = new File(initialPath);
@@ -14,7 +14,7 @@ public class ChangeDirectory {
             current = new File("");
         }
     }
-    
+
     public ChangeDirectory() {
         current = new File("");
     }
@@ -24,11 +24,11 @@ public class ChangeDirectory {
         //startsWith - меотд проверки строки на указанный префикс
         boolean isDiskChanged = path.toLowerCase().startsWith("c:") || path.toLowerCase().startsWith("d:");
         boolean isParentDir = path.equals("..");
-        File newCurrent = isParentDir 
-                ?  new File(current.getAbsolutePath()).getParentFile()
-                : isDiskChanged 
-                    ?  new File(path) 
-                    : new File(current, path);
+        File newCurrent = isParentDir
+                ? new File(current.getAbsolutePath()).getParentFile()
+                : isDiskChanged
+                ? new File(path)
+                : new File(current, path);
         //isDirectory проверка на то, является ли файл директорией.
         if (!newCurrent.isDirectory()) {
             throw new Exception("path is not a directory");
@@ -36,8 +36,12 @@ public class ChangeDirectory {
         current = newCurrent;
         return current;
     }
-           
+
     public File getCurrent() {
         return current;
+    }
+
+    void cd(char text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.mycompany.shell;
 
 /**
@@ -11,5 +10,5 @@ package com.mycompany.shell;
  * @author kuzyaev_nikolay
  */
 public class MakeDirictory {
-    
+
 }

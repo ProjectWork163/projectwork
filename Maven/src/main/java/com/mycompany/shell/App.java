@@ -1,6 +1,8 @@
 package com.mycompany.shell;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class App {
 
@@ -10,24 +12,20 @@ public class App {
     private static Remove rm = new Remove();
 
     public static void main(String[] args) throws IOException {
-    }
-    
-    private static void checkCD() {
-                //getAbsolutePath - получает строку пути без последней папки, выводит полный путь.
-        System.out.println("Current: " + cd.getCurrent().getAbsolutePath());
-         try {
-         cd.cd("..");
-         } catch (Exception ex) {
-         //printStackTrace- диагностики исключение, что случилось и где произошло
-             System.out.println(ex.getMessage());
-         }
-         System.out.println("Current: " + cd.getCurrent().getAbsolutePath());
-         try {
-         cd.cd("c:\\windows");
-         } catch (Exception ex) {
-         //printStackTrace- диагностики исключение, что случилось и где произошло
-             System.out.println(ex.getMessage());
-         }
-         System.out.println("Current: " + cd.getCurrent().getAbsolutePath());
+        Scanner sc = new Scanner(System.in);
+        int n = 1;
+        String text = "";
+        while (n != 0) {
+            System.out.print("Current: " + cd.getCurrent().getAbsolutePath() + "> ");
+            text = sc.nextLine();
+          //  try {
+          //      cd.cd(text);
+
+           // } catch (Exception ex) {
+          //      System.out.println(ex.getMessage());
+          //  }
+            
+            rm.Del(cd.getCurrent().getAbsolutePath(), text);
+        }
     }
 }
