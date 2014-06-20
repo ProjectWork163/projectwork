@@ -30,6 +30,10 @@ public class App {
             if ("remove".equals(s[0])) {
                 rm.Del(cd.getCurrent().getAbsolutePath(), (s[1]));
             }
+            if ("mkdir".equals(s[0])) {
+                mkdir.NewFolder(cd.getCurrent().getAbsolutePath(), (s[1]));
+            }
+            
             if ("exit".equals(s[0])) {
                 n = 0;
             }

@@ -1,14 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.shell;
+import java.io.File;
 
-/**
- *
- * @author kuzyaev_nikolay
- */
 public class MakeDirictory {
-
+    
+    private File Ans;
+   
+    
+    private boolean bool = false; 
+    
+    public File NewFolder(String path, String fname) {
+    try
+      {      
+         
+         Ans = new File(path, fname) ;
+         bool = Ans.mkdir(); 
+      }
+      catch(Exception e) 
+      {
+         e.printStackTrace();
+      } 
+    return Ans;
+    }
 }
