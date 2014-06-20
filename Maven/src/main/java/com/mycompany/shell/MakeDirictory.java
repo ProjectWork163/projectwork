@@ -8,7 +8,7 @@ public class MakeDirictory {
     
     private boolean bool = false; 
     
-    public File NewFolder(String path, String fname) {
+    public File newfolder(String path, String fname) {
     try
       {      
          

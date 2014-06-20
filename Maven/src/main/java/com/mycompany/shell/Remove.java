@@ -6,6 +6,7 @@
 package com.mycompany.shell;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  *
@@ -13,11 +14,20 @@ import java.io.File;
  */
 public class Remove {
 
-    public void Del(String path, String name){
-     
-         File file = new File(path,name);
-         file.delete();
-         System.out.println("File " + name + " is deleted");}
-       
+    public void del(String path, String name) throws Exception {
+
+        
+        
+        File file = new File(path, name);
+
+        try {
+            if (!file.delete()) {
+                throw new Exception("File can not be deleted");
+            }
+        } catch (IOException e) {
+            throw new Exception("22");
+        }
+        System.out.println("File " + name + " is deleted");
     }
 
+}
