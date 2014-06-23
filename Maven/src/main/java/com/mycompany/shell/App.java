@@ -2,6 +2,7 @@ package com.mycompany.shell;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.Scanner;
 
 public class App {
@@ -15,6 +16,7 @@ public class App {
         Scanner sc = new Scanner(System.in);
         int n = 1;
         String text = "";
+
         while (n != 0) {
             System.out.print("Current: " + cd.getCurrent().getAbsolutePath() + ">");
             text = sc.nextLine();
@@ -27,6 +29,7 @@ public class App {
                     System.out.println(ex.getMessage());
                 }
             }
+            
             if ("remove".equals(s[0])) {
                 try {
                     rm.del(cd.getCurrent().getAbsolutePath(), (s[1]));
@@ -37,10 +40,17 @@ public class App {
             if ("mkdir".equals(s[0])) {
                 mkdir.newfolder(cd.getCurrent().getAbsolutePath(), (s[1]));
             }
+            
+            if ("ls".equals(s[0])) {
+                list.ls(cd.getCurrent().getAbsolutePath());
+            }
 
             if ("exit".equals(s[0])) {
                 n = 0;
+                System.out.println("Log out");
             }
+       
+
         }
     }
 }

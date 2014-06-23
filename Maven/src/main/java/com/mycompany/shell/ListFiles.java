@@ -5,10 +5,27 @@
  */
 package com.mycompany.shell;
 
+import java.io.File;
+import java.util.Date;
+
 /**
  *
  * @author kuzyaev_nikolay
  */
-public class ListFiles {
+class ListFiles {
+
+    public void ls(String patch) {
+        System.out.println("Name:           "+"Zise          ");
+        String list[] = new File(".").list();
+        for (int i = 0; i < list.length; i++) {
+            File file = new File(list[i]);
+            long len = file.length();
+            long lastModified = file.lastModified();
+            Date date = new Date(lastModified);
+            System.out.println(list[i] + "           " + len +"b" + "        "+ String.valueOf(date));
+
+        }
+
+    }
 
 }

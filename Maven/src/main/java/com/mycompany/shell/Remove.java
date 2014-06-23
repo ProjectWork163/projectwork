@@ -22,7 +22,7 @@ public class Remove {
 
         try {
             if (!file.delete()) {
-                throw new Exception("File does not exist");
+                throw new Exception("file does not exist");
             }
         } catch (IOException e) {
             throw new Exception("File can not be deleted");
