@@ -16,14 +16,13 @@ class ListFiles {
 
     public void ls(String patch) {
         System.out.println("--------------------------------------");
-        System.out.println("Name:           " + "Zise          ");
         String list[] = new File(".").list();
         for (int i = 0; i < list.length; i++) {
             File file = new File(list[i]);
             long len = file.length();
             long lastModified = file.lastModified();
             Date date = new Date(lastModified);
-            System.out.print(list[i] + "           "+len + "b" + "        " + String.valueOf(date));
+            System.out.println("Name: " + list[i] + "   Size: " +len + "b" + "   Last Modified: " + String.valueOf(date));
         }
         System.out.println("--------------------------------------");
 
