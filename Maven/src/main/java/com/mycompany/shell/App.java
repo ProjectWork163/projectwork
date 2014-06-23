@@ -28,12 +28,16 @@ public class App {
                 }
             }
             if ("remove".equals(s[0])) {
-                rm.del(cd.getCurrent().getAbsolutePath(), (s[1]));
+                try {
+                    rm.del(cd.getCurrent().getAbsolutePath(), (s[1]));
+                } catch (Exception ex) {
+                    System.out.println(ex.getMessage());
+                }
             }
             if ("mkdir".equals(s[0])) {
                 mkdir.newfolder(cd.getCurrent().getAbsolutePath(), (s[1]));
             }
-            
+
             if ("exit".equals(s[0])) {
                 n = 0;
             }

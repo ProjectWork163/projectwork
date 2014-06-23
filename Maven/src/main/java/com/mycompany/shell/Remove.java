@@ -22,10 +22,10 @@ public class Remove {
 
         try {
             if (!file.delete()) {
-                throw new Exception("File can not be deleted");
+                throw new Exception("File does not exist");
             }
         } catch (IOException e) {
-            throw new Exception("22");
+            throw new Exception("File can not be deleted");
         }
         System.out.println("File " + name + " is deleted");
     }
