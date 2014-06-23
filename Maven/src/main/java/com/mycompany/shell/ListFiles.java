@@ -16,7 +16,7 @@ class ListFiles {
 
     public void ls(String patch) {
         System.out.println("--------------------------------------");
-        String list[] = new File(".").list();
+        String list[] = new File(patch).list();
         for (int i = 0; i < list.length; i++) {
             File file = new File(list[i]);
             long len = file.length();
