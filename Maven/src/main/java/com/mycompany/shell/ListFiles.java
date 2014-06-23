@@ -22,7 +22,7 @@ class ListFiles {
             long len = file.length();
             long lastModified = file.lastModified();
             Date date = new Date(lastModified);
-            System.out.println("Name: " + list[i] + "   Size: " +len + "b" + "   Last Modified: " + String.valueOf(date));
+            System.out.println( "Last Modified: " + String.valueOf(date)+ "   Name: " + list[i] + "           Size: " +len + "b" ) ;
         }
         System.out.println("--------------------------------------");
 
