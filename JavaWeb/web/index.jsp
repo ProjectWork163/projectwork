@@ -5,7 +5,6 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -73,7 +72,6 @@
                 <td align="center"  height ="40" bgcolor="#efefef"><font color="#363636" size="-2"><h1><i>Авиакомпания Makeev & Kyzyaev </i></h1></font></td>
             </tr>
         </table>
-
 
     </body>
 </html>
