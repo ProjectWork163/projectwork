@@ -1,6 +1,7 @@
 package com.epam.fly;
 
 import java.io.IOException;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,10 +16,11 @@ public class MainServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {  
-
+        BaseContact baseContact = new BaseContact();
         // prepare data
+        Map<Long, String> flights = baseContact.getFlights();
         // send them to jsp
-        request.setAttribute("someAttr", "Hello World!");
+        request.setAttribute("flights", flights);
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 

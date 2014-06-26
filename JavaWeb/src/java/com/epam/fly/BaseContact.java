@@ -5,12 +5,15 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class BaseContact {
     
-    public static void main(String[] args) {
-        
+    public Map<Long, String> getFlights() {
+        Map<Long, String> flights = new HashMap<Long, String>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("Driver found");
@@ -20,7 +23,7 @@ public class BaseContact {
         
         String url="jdbc:mysql://localhost/flights";
         String user = "root";
-        String password=""; //need write pass
+        String password="Rktqrjkzysx2"; //need write 
         Connection con = null;
         
         try {
@@ -28,17 +31,21 @@ public class BaseContact {
             System.out.println("Connected successfully"+"\n");
             Statement st = con.createStatement();
             
-            ResultSet rs = st.executeQuery("select * from flight" );
+            ResultSet rs = st.executeQuery("select * from flight, plane" );
             //ResultSet Planename = st.executeQuery("select name * from plane");
-            System.out.println("name  -  arrival  -  departure  -  time");
+            System.out.println("name  -  arrival  -  departure  ");
             System.out.println("------------------------------------------");
-            while(rs.next())
-            {
-                    //System.out.println(NamePlane.getString("name"));
-                    System.out.println( rs.getString("arrival")+ " - " 
+            while(rs.next()) {
+                    
+                    System.out.println(rs.getString("name")+ " - " 
+                            +rs.getString("arrival")+ " - " 
+                            +rs.getString("departure")
+                            );
+               flights.put(rs.getLong("id_flight"), rs.getString("name")+ " - " 
+                            +rs.getString("arrival")+ " - " 
                             +rs.getString("departure"));
-               
             }
+            
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -52,6 +59,7 @@ public class BaseContact {
                     e.printStackTrace();
                }
           }
+        return flights;
     }
     
 }

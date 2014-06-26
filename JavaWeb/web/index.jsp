@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -41,15 +42,20 @@
                         Самолеты - куда откуда время
                     </p>
                     <p>
-                        <select name="Мета">
-                            <option></option>
-                            <option></option>
+                        <select name="flights">
+                            <c:forEach items="${flights}" var="flight">
+                                <option value="${flight.key}">${flight.value}</option>
+                                <option></option>
+                            </c:forEach>
                         </select>
                     </p>
                     <p>Имя:
                         <input type="text" value="" size="64" />
                     </p>
                     <p>Фамилия:
+                        <input type="text" value="" size="60" />
+                    </p>
+                    <p>Телефон:
                         <input type="text" value="" size="60" />
                     </p>
                     
