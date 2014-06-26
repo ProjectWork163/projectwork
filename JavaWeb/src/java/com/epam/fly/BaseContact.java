@@ -23,7 +23,7 @@ public class BaseContact {
         
         String url="jdbc:mysql://localhost/flights";
         String user = "root";
-        String password="Rktqrjkzysx2"; //need write 
+        String password=""; //need write 
         Connection con = null;
         
         try {
